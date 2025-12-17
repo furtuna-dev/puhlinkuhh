@@ -22,7 +22,7 @@ The bot also uses _ranks_ for determening what level of command execution a play
 ### !say `<args>` 
 > Types in chat \<args\>
 
-###### *not done yet. <br> I forgot to save the code to `/modules/say.js` before deleting the it from `main.js` and now i have to re-write it*
+###### *not done yet.* <br> I forgot to save the code to `/modules/say.js` before deleting the it from `main.js` and now i have to re-write it
 
 ### !follow
 > Follows the player that executes the command.<br>
