@@ -1,14 +1,13 @@
 const yo = {
     ver: "v1.2-flt",
-    name: "puhlinkuh"
+    name: "puhlinkuhh"
 }
 
 function print(msg) {
   console.log(`[${yo.name}] > ${msg}`);
 }
 console.clear();
-console.log("Initialising...");
-const owner = "furtuna";
+console.log("Initialising & loading libs...");
 
 //init down bellow
 const punycode = require('punycode/');
@@ -25,27 +24,31 @@ colors.setTheme({
   error: 'red',
   purple: 'magenta',
   pink: 'brightMagenta'
-  
 });
 
-//bot init
-
-
-var bot_options = {
-  host: 'imiplacsclavele.aternos.me',
-  port: 25565,
-  username: 'puhlinkuhh',
-  version: "1.21.4"
-}
-
 console.log(`\n>>> ${yo.name} - ${yo.ver} <<<\n\n`.purple);
+print("Sucesfully loaded libs!".info);
+
+//config init
+print("Loading config...".info);
+const config = require("./bot_config.json");
+const owner = config.owner;
+print("> Loaded".info);
 print(`> Bot owner: ${owner}`.pink);
-print("Loaded console and colors...\n".info);
+
+//bot init
+print("Intialising bot...".info);
+var bot_options = {
+  host: config.host,
+  port: config.port,
+  username: config.username,
+  version: config.version
+}
+print("> Bot init sucesfull!".info);
 
 
 //bot down below from now
-
-print(`Loading bot: \'${bot_options.username}\'`.info);
+print(`Creating and connecting bot: \'${bot_options.username}\' to host: \'${bot_options.host}\' on port: \'${bot_options.port}\' `.info);
 
 //creating and connecting bot
 const bot = mineflayer.createBot(bot_options); //connect
@@ -79,11 +82,11 @@ bot.on('chat', async (username, message)=> {
 
 //leave
 bot.on('chat', async (username, message)=> {
-  if (message=="!leave") {
+  if (message=="pleaca bai") {
     print(`Recieved leave command from ${username}`);
     if (username==owner) {
       print("Validated owner. Leaving.\n");
-      bot.chat("aight imma leave");
+      bot.chat("aight, imma leave");
       bot.end("ended");
       print("Bot terminated.");
       print("Terminating sesh...".red);
